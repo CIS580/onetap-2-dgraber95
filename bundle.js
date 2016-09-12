@@ -121,22 +121,22 @@ module.exports = exports = Player;
  * @param {Postition} position object specifying an x and y
  */
 function Player(position) {
-  this.state = "waiting";
-  this.timer = 0;
-  this.frame = 0;
-  this.x = position.x;
-  this.y = position.y;
-  this.width  = 16;
-  this.height = 16;
-  this.spritesheet  = new Image();
-  this.spritesheet.src = encodeURI('assets/link/not link/notlink up.png');
+	this.state = "waiting";
+	this.timer = 0;
+	this.frame = 0;
+	this.x = position.x;
+	this.y = position.y;
+	this.width  = 16;
+	this.height = 16;
+	this.spritesheet  = new Image();
+	this.spritesheet.src = encodeURI('assets/link/not link/notlink up.png');
   
-  var self = this;
-  window.onmousedown = function(event){
-	  if(self.state ="waiting"){
-		self.x = event.clientX;
-		self.state = "walking";
-	  }
+	var self = this;
+	window.onmousedown = function(event){
+		if(self.state == "waiting"){
+			self.x = event.clientX;
+			self.state = "walking";
+		}
 	}
 }
 

@@ -1,18 +1,18 @@
 "use strict";
 
 /**
- * @module exports the Player class
+ * @module exports the Enemy class
  */
-module.exports = exports = Player;
+module.exports = exports = Enemy;
 
 
 /**
- * @constructor Player
- * Creates a new player object
+ * @constructor Enemy
+ * Creates a new enemy object
  * @param {Postition} position object specifying an x and y
  */
-function Player(position) {
-	this.state = "waiting";
+function Enemy(position) {
+	this.state = "walking";
 	this.timer = 0;
 	this.frame = 0;
 	this.x = position.x;
@@ -32,10 +32,10 @@ function Player(position) {
 }
 
 /**
- * @function updates the player object
+ * @function updates the enemy object
  * {DOMHighResTimeStamp} time the elapsed time since the last frame
  */
-Player.prototype.update = function(elapsedTime) {
+Enemy.prototype.update = function(elapsedTime) {
 	this.timer += elapsedTime;
 	
 	switch(this.state){
@@ -50,11 +50,11 @@ Player.prototype.update = function(elapsedTime) {
 }
 
 /**
- * @function renders the player into the provided context
+ * @function renders the enemy into the provided context
  * {DOMHighResTimeStamp} time the elapsed time since the last frame
  * {CanvasRenderingContext2D} ctx the context to render into
  */
-Player.prototype.render = function(time, ctx) {
+Enemy.prototype.render = function(time, ctx) {
   ctx.drawImage(
     // image
     this.spritesheet,
